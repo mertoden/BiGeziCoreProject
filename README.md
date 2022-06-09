@@ -1,0 +1,2 @@
+# BiGeziCoreProject
+Proje Oluşturuldu.
