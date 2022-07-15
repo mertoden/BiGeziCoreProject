@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace BiGeziCoreProject.ViewComponents.Default
 {
-    public class _Feature : ViewComponent
+    public class _SubAbout: ViewComponent
     {
-        FeatureManager featureManager = new FeatureManager(new EFFeatureDL());
+        SubAboutManager subAboutManager = new SubAboutManager(new EFSubAboutDL());
         public IViewComponentResult Invoke()
-            {
-                //ViewBag.image1=featureManager.ge
-                 return View();
-            }
+        {
+            var values = subAboutManager.TGetList();
+            return View(values);
+        }
     }
 }
