@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Business.Concrete;
+using DataAccess.EntityFramework;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +10,11 @@ namespace BiGeziCoreProject.ViewComponents.Default
 {
     public class _Testimonial: ViewComponent
     {
+        TestimonialManager testimonialManager = new TestimonialManager(new EFTestimonialDL());
         public IViewComponentResult Invoke()
         {
-            return View();
+            var values = testimonialManager.TGetList();
+            return View(values);
         }
     }
 }
